@@ -13,3 +13,5 @@ This code demonstrates video conference for multiple users. Deploy instructions:
 * Add rule to application with `name` set to "InboundCall", `pattern` set to "joinconf" and `scenario` set to "VideoConferenceGatekeeper"
 * Add rule to application with `name` set to "Fwd", `pattern` set to "conf_[A-Za-z0-9]+" and `scenario` set to "VideoConference"
 * Add rule to application with `name` set to "P2P", `pattern` set to ".*" and `scenario` set to "VideoConferenceP2P"
+* Modify `auth.php` and set `API_KEY` and `ACCOUNT_NAME` to values specified in your `voximplant` account.
+* Host `auth.php` and `index.html` on some web server. Each user that navigates `index.html` will be able to select a user name and join a conference.
