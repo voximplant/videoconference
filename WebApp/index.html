@@ -7,7 +7,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/js/uikit.min.js" type="text/javascript"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/js/components/form-select.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="layout.js"></script>
-<script type="text/javascript" src="//cdn.voximplant.com/voximplant.min.js"></script>
+<script type="text/javascript" src="//cdn.voximplant.com/edge/voximplant.min.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/css/uikit.min.css" type="text/css" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/css/uikit.almost-flat.min.css" type="text/css" />
@@ -83,7 +83,6 @@
 		// Handle SDK ready event
 		function onSdkReady(event){
 			log("onSDKReady. SDK version: "+event.version);
-			log("WebRTC supported: "+voxAPI.isRTCsupported());
 			$('div.tip, div.spinner').show();
 			// Establish connection
 			connect();
@@ -226,7 +225,7 @@
 				removePeerCall(e.call);
 			});
 			e.call.addEventListener(VoxImplant.CallEvents.Connected, function(e) {				
-				e.call.showRemoteVideo(true);	
+				e.call.showRemoteVideo(true);
 				voxAPI.setCallActive(e.call, true);
 				$('#container').append('<div id="'+getNameFromURI(e.call.number())+'" class="vid"><div class="name">'+getDisplayName(e.call.displayName())+'</div></div>');
 				$(document.getElementById(e.call.getVideoElementId())).prependTo("#"+getNameFromURI(e.call.number())).removeAttr("width height");
@@ -441,8 +440,7 @@
 
 		// Initialize VoxImplant SDK
 		function initSDK() {			
-			voxAPI.init({ 
-				useRTCOnly: true,
+			voxAPI.init({
 				micRequired: true, 
 				videoSupport: true
 			});
