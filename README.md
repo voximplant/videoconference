@@ -1,6 +1,8 @@
 # videoconference
 
-This code demonstrates video conference for multiple users. Deploy instructions:
+This code demonstrates video conference for multiple users. Note that PHP interpretation is required for proper work of this demo.
+
+Deploy instructions:
 
 * Register or login at https://manage.voximplant.com/
 * Create a new application and name it "videoconf".
